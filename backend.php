@@ -26,6 +26,7 @@ if(isset($_SESSION['login'])){
           <a href="index.php"><i class="fas fa-arrow-circle-left"></i>回前台</a>
           <a href="?do=basic">基本資料管理</a>
           <a href="?do=image">照片管理</a>
+          <a href="?do=skill">技能管理</a>
           <a href="?do=education">學歷管理</a>
           <a href="?do=experience">經歷管理</a>
           <a href="?do=autobiography">自傳管理</a>

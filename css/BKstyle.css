@@ -63,3 +63,8 @@ body{
 .btn-outline-warning:hover{
   color: white;
 }
+
+.btn-outline-secondary a{
+  color: unset;
+  text-decoration: none;
+}

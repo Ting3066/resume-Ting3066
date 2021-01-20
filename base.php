@@ -10,6 +10,7 @@ $Experience=new DB("experience");
 $Auto=new DB("autobiography");
 $Require=new DB("req");
 $Image=new DB("image") ;
+$Skill=new DB("skill");
 
 class DB{
   protected $table;
@@ -117,7 +118,7 @@ class DB{
       foreach($arr as $key => $value){
         $tmp[]=sprintf("`%s`='%s'",$key,$value);
       }
-      $sql="update $this->table set ".implode(',',$tmp)." where `id`='{$arr['id']}'";
+      $sql="update `$this->table` set ".implode(',',$tmp)." where `id`='{$arr['id']}'";
     }else{
       //insert
 

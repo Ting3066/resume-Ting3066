@@ -69,7 +69,7 @@ include_once "base.php";
   <!-- 頁首畫面 -->
   <section class="pageTop">
     <div class="intro">
-      <h1 class="type">Hello World! I'm WenTing.</h1>
+      <h1 class="type"><?=$Basic->find(1)['text'];?></h1>
       <div class="mt-3">
         <small><i class="fas fa-map-marker-alt mr-2"></i>New Taipei City, Taiwan</small>
         <a href="https://github.com/Ting3066" target="_blank"><i class="fab fa-github"></i></a>
@@ -85,18 +85,18 @@ include_once "base.php";
     <div class="title my-5 text-info font-weight-bolder">ABOUT</div>
     <div class="row">
       <div class="text-center col-12 col-lg-5">
-        <img src="https://fakeimg.pl/350x400">
+        <img src="img/<?=$Image->all(['sh'=>1])[0]['img'];?>" style="width:350px;height:400px">
       </div>
       <div class="col-12 mt-5 col-lg-7 mt-lg-0 d-flex flex-column-reverse flex-lg-column pt-lg-5">
         <p class="container px-5 px-lg-0 pr-lg-5">
-          原以為非常難理解的程式碼，在接觸後便深感興趣，喜歡動腦思考的我，享受著分析並解決問題的成就感，自學了一段時間開始產生轉職的念頭，隨後參加了泰山職訓的PHP資料庫程式設計班，920小時的訓練期間奠定了相當的程式基礎與觀念，且累積不少運用多種網頁技術產生之作品，目前仍持續精進，希望成為優秀的後端工程師。
+          <?=$Auto->all(['sh'=>1])[0]['text'];?>
         </p>
         <div class="my-3 pl-5 pl-md-5 pl-lg-0">
-          <div class="mb-1">姓名: 黃玟婷</div>
-          <div class="mb-1">手機: 0905555189</div>
-          <div class="mb-1">生日: 1994/02/16</div>
-          <div class="mb-1">信箱: HWting3066@gmail.com</div>
-          <div>職稱: 後端工程師</div>
+          <div class="mb-1">姓名: <?=$Basic->find(1)['name'];?></div>
+          <div class="mb-1">手機: <?=$Basic->find(1)['phone'];?></div>
+          <div class="mb-1">生日: <?=$Basic->find(1)['birth'];?></div>
+          <div class="mb-1">信箱: <?=$Basic->find(1)['email'];?></div>
+          <div>職稱: <?=$Require->all(['sh'=>1])[0]['title'];?></div>
         </div>
       </div>
     </div>
@@ -147,7 +147,7 @@ include_once "base.php";
             <div class="text-center">
               <!-- <img src="#" alt=""> -->
               <i class="fas fa-tools text-light fa-3x"></i>
-              <h3>開發工具</h3>
+              <h3>軟體工具</h3>
             </div>
           </div>
           <div class="face face2">
