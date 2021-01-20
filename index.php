@@ -44,7 +44,7 @@ include_once "base.php";
             <?php
             if(!empty($_SESSION['login'])){
             ?>
-              <a class="nav-link" href="api/logout.php">管理登出</a>
+              <a class="nav-link" href="api/logout.php">登出</a>
             <?php
             }else{
             ?>
