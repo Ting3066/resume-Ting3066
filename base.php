@@ -11,6 +11,7 @@ $Auto=new DB("autobiography");
 $Require=new DB("req");
 $Image=new DB("image") ;
 $Skill=new DB("skill");
+$Portfolio=new DB("portfolio");
 
 class DB{
   protected $table;
@@ -125,7 +126,7 @@ class DB{
       $sql="insert into $this->table (`".implode("`,`",array_keys($arr))."`) values('".implode("','",$arr)."')";
 
     }
-    // echo $sql;
+    echo $sql;
     return $this->pdo->exec($sql);
   }
 
