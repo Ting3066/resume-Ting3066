@@ -16,10 +16,9 @@
       <td><input type="text" name="job" value="<?=$ex['job'];?>"></td>
     </tr>
     <tr>
-      <td>就業狀態:</td>
+      <td>任職時間:</td>
       <td>
-        <input type="radio" name="type" value="在職" <?=($ex['type']=="在職")?"checked":"";?>>在職
-        <input type="radio" name="type" value="離職" <?=($ex['type']=="離職")?"checked":"";?>>離職
+        <input type="text" name="time" value="<?=$ex['time'];?>">
       </td>
     </tr>
     <tr>

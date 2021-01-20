@@ -9,6 +9,9 @@ if(isset($_GET['id'])){
     move_uploaded_file($_FILES['img']['tmp_name'],'../img/'.$_FILES['img']['name']);
     $row['img']=$_FILES['img']['name'];
   }
+  $row['name']=$_POST['name'];
+  $row['href']=$_POST['href'];
+  $row['text']=$_POST['text'];
 
   $Portfolio->save($row);
 

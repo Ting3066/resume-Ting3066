@@ -20,7 +20,7 @@ include_once "base.php";
 <body>
   <!-- 選單列 -->
   <header class="fixed-top alert-secondary bgShadow" id="myMenu">
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
         <span class="navbar-toggler-icon"></span>
@@ -44,11 +44,11 @@ include_once "base.php";
             <?php
             if(!empty($_SESSION['login'])){
             ?>
-              <a class="nav-link" href="api/logout.php">登出</a>
+            <a class="nav-link" href="api/logout.php">登出</a>
             <?php
             }else{
             ?>
-              <a class="nav-link" href="front/login.php">管理登入</a>
+            <a class="nav-link" href="front/login.php">管理登入</a>
             <?php
             }
             ?>
@@ -57,7 +57,7 @@ include_once "base.php";
             <?php
             if(!empty($_SESSION['login'])){
             ?>
-              <a class="nav-link" href="backend.php"><i class="fas fa-arrow-circle-left"></i>後台管理</a>
+            <a class="nav-link" href="backend.php"><i class="fas fa-arrow-circle-left"></i>後台管理</a>
             <?php
             }
             ?>
@@ -117,10 +117,14 @@ include_once "base.php";
           <div class="face face2">
             <div>
               <ul>
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Javascript</li>
-                <li>Bootstrap</li>
+                <?php
+                $skills=$Skill->all(['sh'=>1,'type'=>1]);
+                foreach($skills as $skill){
+                ?>
+                <li><?=$skill['name'];?></li>
+                <?php
+                }
+                ?>
               </ul>
             </div>
           </div>
@@ -136,8 +140,14 @@ include_once "base.php";
           <div class="face face2">
             <div>
               <ul>
-                <li>PHP</li>
-                <li>MySQL</li>
+                <?php
+                $skills=$Skill->all(['sh'=>1,'type'=>2]);
+                foreach($skills as $skill){
+                ?>
+                <li><?=$skill['name'];?></li>
+                <?php
+                }
+                ?>
               </ul>
             </div>
           </div>
@@ -153,9 +163,14 @@ include_once "base.php";
           <div class="face face2">
             <div>
               <ul>
-                <li>Visual Studio Code</li>
-                <li>Photoshop</li>
-                <li>Illustrator</li>
+                <?php
+                $skills=$Skill->all(['sh'=>1,'type'=>3]);
+                foreach($skills as $skill){
+                ?>
+                <li><?=$skill['name'];?></li>
+                <?php
+                }
+                ?>
               </ul>
             </div>
           </div>
@@ -171,8 +186,14 @@ include_once "base.php";
           <div class="face face2">
             <div>
               <ul>
-                <li>Git</li>
-                <li>Github</li>
+                <?php
+                $skills=$Skill->all(['sh'=>1,'type'=>4]);
+                foreach($skills as $skill){
+                ?>
+                <li><?=$skill['name'];?></li>
+                <?php
+                }
+                ?>
               </ul>
             </div>
           </div>
@@ -180,6 +201,7 @@ include_once "base.php";
       </div>
     </div>
   </section>
+  
   <!-- 經歷 -->
   <section class="py-5" id="education">
     <div class="container">
@@ -304,33 +326,24 @@ include_once "base.php";
     <div class="container">
       <div class="title my-5 text-info font-weight-bolder">PORTFOLIO</div>
       <div class="row">
+        <?php
+        $pors=$Portfolio->all(['sh'=>1]);
+        foreach($pors as $por){
+        ?>
         <div class="col-12 col-md-6 col-lg-4 mb-5">
           <div class="card">
-            <img src="https://fakeimg.pl/300x200/ffffcc" class="card-img-top">
+            <img src="img/<?=$por['img'];?>" class="card-img-top">
             <div class="card-body">
-              <h5>lorem</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet.</p>
+              <h5><?=$por['name'];?></h5>
+              <p class="card-text"><?=$por['text'];?></p>
+              <a href="http://220.128.133.15/s1090401/<?=$por['href'];?>" class="btn btn-primary"><i class="fas fa-link"></i></a>
+
             </div>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-5">
-          <div class="card">
-            <img src="https://fakeimg.pl/300x200/ffffcc" class="card-img-top">
-            <div class="card-body">
-              <h5>lorem</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 mb-5">
-          <div class="card">
-            <img src="https://fakeimg.pl/300x200/ffffcc" class="card-img-top">
-            <div class="card-body">
-              <h5>lorem</h5>
-              <p class="card-text">Lorem ipsum dolor sit amet.</p>
-            </div>
-          </div>
-        </div>
+        <?php
+        }
+        ?>
       </div>
     </div>
 
