@@ -52,3 +52,14 @@ body{
   font-size: 2rem;
   font-weight: bolder;
 }
+
+.add{
+  color: steelblue;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 50px;
+}
+
+.btn-outline-warning:hover{
+  color: white;
+}
