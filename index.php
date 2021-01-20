@@ -20,7 +20,7 @@ include_once "base.php";
 <body>
   <!-- 選單列 -->
   <header class="fixed-top alert-secondary bgShadow" id="myMenu">
-    <nav class="navbar navbar-expand-lg container">
+    <nav class="navbar navbar-expand-lg">
       <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu">
         <span class="navbar-toggler-icon"></span>
