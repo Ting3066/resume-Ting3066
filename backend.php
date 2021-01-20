@@ -28,7 +28,7 @@ if(isset($_SESSION['login'])){
           <a href="?do=image">照片管理</a>
           <a href="?do=education">學歷管理</a>
           <a href="?do=experience">經歷管理</a>
-          <a href="?do=self">自傳管理</a>
+          <a href="?do=autobiography">自傳管理</a>
           <a href="?do=require">求職條件管理</a>
           <a href="?do=portfolio">作品管理</a>
           <a href="api/logout.php">管理登出</a>

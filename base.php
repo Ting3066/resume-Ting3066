@@ -7,7 +7,7 @@ session_start();
 $Basic=new DB("basic");
 $Education=new DB("education");
 $Experience=new DB("experience");
-$Self=new DB("self");
+$Auto=new DB("autobiography");
 $Require=new DB("req");
 $Image=new DB("image") ;
 
