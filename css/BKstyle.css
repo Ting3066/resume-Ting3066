@@ -1,0 +1,49 @@
+body{
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(62,209,188);
+  background: linear-gradient(90deg, rgba(62,209,188,1) 0%, rgba(215,211,69,1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settingBox{
+  background: white;
+  height: 80vh;
+  border-radius: 20px;
+  box-shadow: 0 0 9px 0px #4a4a4ab0;
+
+}
+
+#menuBar{
+  width: 15%;
+  height: 104%;
+  position: absolute;
+  left: 5%;
+  top: -2%;
+  background: #3accbd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 1px #2b8279;
+}
+#menuBar a{
+  margin-bottom: 40px;
+  text-decoration: none;
+  color: white;
+}
+#menuBar a:hover{
+  cursor: pointer;
+  text-shadow: 0 0 20px #31ff41;
+}
+
+#settingArea{
+  height: 80vh;
+  width: 80%;
+  float: right;
+  overflow: auto;
+}

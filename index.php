@@ -1,3 +1,6 @@
+<?php
+include_once "base.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,6 +39,28 @@
           </li>
           <li class="nav-item" style="padding: 8px 16px;">
             <a class="nav-link" href="#portfolio">作品</a>
+          </li>
+          <li class="nav-item" style="padding: 8px 16px;">
+            <?php
+            if(!empty($_SESSION['login'])){
+            ?>
+              <a class="nav-link" href="api/logout.php">管理登出</a>
+            <?php
+            }else{
+            ?>
+              <a class="nav-link" href="front/login.php">管理登入</a>
+            <?php
+            }
+            ?>
+          </li>
+          <li class="nav-item" style="padding: 8px 16px;">
+            <?php
+            if(!empty($_SESSION['login'])){
+            ?>
+              <a class="nav-link" href="backend.php"><i class="fas fa-arrow-circle-left"></i>後台管理</a>
+            <?php
+            }
+            ?>
           </li>
         </ul>
       </div>
