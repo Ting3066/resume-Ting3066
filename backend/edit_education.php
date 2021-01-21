@@ -16,16 +16,23 @@
       <td><input type="text" name="department" value="<?=$edu['department'];?>"></td>
     </tr>
     <tr>
-      <td>就學狀態:</td>
-      <td>
-        <input type="radio" name="type" value="在學中" <?=($edu['type']=="在學中")?'checked':'';?>>在學中
-        <input type="radio" name="type" value="畢業" <?=($edu['type']=="畢業")?'checked':'';?>>畢業
-      </td>
+      <td rowspan="<?=count(explode(",",$edu['text']))+1;?>">其他說明:</td>
     </tr>
-    <tr>
-      <td>其他說明:</td>
-      <td><textarea name="text" cols="50" rows="10"><?=$edu['text'];?></textarea></td>
-    </tr>
+    <?php
+        $texts=explode(",",$edu['text']);
+        foreach($texts as $key => $text){
+          ?>
+        <tr>
+          <td>
+            <input type="text" name="text[]" value="<?=$text;?>">
+          </td>
+        </tr>
+        <?php
+        }
+        ?>
+      <tr class="text-center">
+        <td colspan="2"><button type="button" class="btn btn-info" onclick="more(this)">新增欄位</button></td>
+      </tr>
     <input type="hidden" name="id" value="<?=$edu['id'];?>">
   </table>
   <div class="text-center">
@@ -34,3 +41,16 @@
   </div>
 </form>
 </div>
+
+<script>
+function more(item){
+  $(item).parents("tr").before(`
+    <tr>
+      <td></td>
+      <td><input type="text" name="text[]"></td>
+    </tr>
+  `);
+  
+  
+}
+</script>

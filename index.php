@@ -277,47 +277,36 @@ include_once "base.php";
     <div class="container">
       <h4 class="mb-3 text-secondary">WORK EXPERIENCE</h4>
       <div class="experienceContent">
+        <?php
+        $exs=$Experience->all(['sh'=>1]);
+        foreach($exs as $ex){
+          $exText=explode(",",$ex['text']);
+        ?>
         <div class="timelineBlock">
           <div class="mainTimeline">
             <i class="far fa-circle"></i>
             <div class="timeline"></div>
           </div>
           <div class="timelineContent">
-            <h5>藝騰光電有限公司</h5>
-            <p>行政會計</p>
-            <p>2017.11-2020.06</p>
+            <h5><?=$ex['companyname'];?></h5>
+            <p><?=$ex['job'];?></p>
+            <p><?=$ex['time'];?></p>
             <div>
               <ul>
-                <li>客戶需求調查及分析，以利新商品開發並了解市場的流動與變化。</li>
-                <li>廠商開發，外調商品採購及成本控管。</li>
-                <li>協助業務處理訂單以及緊急狀況排除。</li>
-                <li>客戶問題即時處理並呈報。</li>
-                <li>協助送貨備貨以便準時出車，排解送貨途中遭遇的突發狀況。</li>
-                <li>公司帳務及應收帳款整理與追蹤。</li>
-                <li>燈具各項功能測試、組裝及品質監控。</li>
-                <li>進出貨、倉庫商品庫存管理。</li>
+                <?php
+                  for($i=0;$i<(count($exText));$i++){
+                ?>
+                <li><?=$exText[$i];?></li>
+                <?php
+                  }
+                ?>
               </ul>
             </div>
           </div>
         </div>
-        <div class="timelineBlock">
-          <div class="mainTimeline">
-            <i class="far fa-circle"></i>
-            <div class="timeline"></div>
-          </div>
-          <div class="timelineContent">
-            <h5>新倫鞋城</h5>
-            <p>工讀生</p>
-            <p>2012.05-2016.02</p>
-            <div>
-              <ul>
-                <li>引導顧客選購商品，推銷、銷售商品。</li>
-                <li>處理顧客訂貨及取貨事宜。</li>
-                <li>新品上架，進貨商品整理入倉，庫存清點。</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <?php
+        }
+        ?>
       </div>
     </div>
   </section>
@@ -336,7 +325,7 @@ include_once "base.php";
             <div class="card-body">
               <h5><?=$por['name'];?></h5>
               <p class="card-text"><?=$por['text'];?></p>
-              <a href="http://220.128.133.15/s1090401/<?=$por['href'];?>" class="btn btn-primary"><i class="fas fa-link"></i></a>
+              <a href="<?=$por['href'];?>" target="_blank" class="btn btn-primary"><i class="fas fa-link"></i></a>
 
             </div>
           </div>

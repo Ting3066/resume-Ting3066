@@ -1,6 +1,21 @@
 <?php
 include_once "../base.php";
 
+$tmp="";
+foreach($_POST['text'] as $key => $text){
+  if($key==0){
+    $tmp=$tmp.$text;
+
+  }else{
+    $tmp=$tmp.",".$text;
+
+  }
+  
+
+}
+
+$_POST['text']=$tmp;
+
 
 if(isset($_POST['sh']) || isset($_POST['del'])){
 

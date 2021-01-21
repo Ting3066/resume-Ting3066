@@ -22,9 +22,24 @@
       </td>
     </tr>
     <tr>
-      <td>職務說明:</td>
-      <td><textarea name="text" cols="50" rows="10"><?=$ex['text'];?></textarea></td>
+      <td rowspan="<?=count(explode(",",$ex['text']))+1;?>">職務說明:</td>
+      
     </tr>
+        <?php
+        $texts=explode(",",$ex['text']);
+        foreach($texts as $key => $text){
+          ?>
+        <tr>
+          <td>
+            <input type="text" name="text[]" value="<?=$text;?>">
+          </td>
+        </tr>
+        <?php
+        }
+        ?>
+      <tr class="text-center">
+        <td colspan="2"><button type="button" class="btn btn-info" onclick="more(this)">新增欄位</button></td>
+      </tr>
     <input type="hidden" name="id" value="<?=$ex['id'];?>">
   </table>
   <div class="text-center">
@@ -33,3 +48,16 @@
   </div>
 </form>
 </div>
+
+<script>
+function more(item){
+  $(item).parents("tr").before(`
+    <tr>
+      <td></td>
+      <td><input type="text" name="text[]"></td>
+    </tr>
+  `);
+  
+  
+}
+</script>

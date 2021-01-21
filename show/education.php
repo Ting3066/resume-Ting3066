@@ -9,15 +9,11 @@
       <td><input type="text" name="department"></td>
     </tr>
     <tr>
-      <td>就學狀態:</td>
-      <td>
-        <input type="radio" name="type" value="在學中">在學中
-        <input type="radio" name="type" value="畢業">畢業
-      </td>
-    </tr>
-    <tr>
       <td>其他說明:</td>
-      <td><textarea name="text" cols="50" rows="10"></textarea></td>
+      <td><input type="text" name="text[]"></td>
+    </tr>
+    <tr class="text-center">
+      <td colspan="2"><button type="button" class="btn btn-info" onclick="more(this)">新增欄位</button></td>
     </tr>
   </table>
   <div class="text-center">
@@ -25,3 +21,16 @@
     <button class="btn btn-outline-secondary"><a href="backend.php?do=education">取消</a></button>
   </div>
 </form>
+
+<script>
+function more(item){
+  $(item).parents("tr").before(`
+    <tr>
+      <td></td>
+      <td><input type="text" name="text[]"></td>
+    </tr>
+  `);
+  
+  
+}
+</script>

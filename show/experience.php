@@ -9,15 +9,17 @@
       <td><input type="text" name="job"></td>
     </tr>
     <tr>
-      <td>就業狀態:</td>
+      <td>任職時間:</td>
       <td>
-        <input type="radio" name="type" value="在職">在職
-        <input type="radio" name="type" value="離職">離職
+        <input type="text" name="time">
       </td>
     </tr>
     <tr>
       <td>職務說明:</td>
-      <td><textarea name="text" cols="50" rows="10"></textarea></td>
+      <td><input type="text" name="text[]"></td>
+    </tr>
+    <tr class="text-center">
+      <td colspan="2"><button type="button" class="btn btn-info" onclick="more(this)">新增欄位</button></td>
     </tr>
   </table>
   <div class="text-center">
@@ -25,3 +27,16 @@
     <button class="btn btn-outline-secondary"><a href="backend.php?do=experience">取消</a></button>
   </div>
 </form>
+
+<script>
+function more(item){
+  $(item).parents("tr").before(`
+    <tr>
+      <td></td>
+      <td><input type="text" name="text[]"></td>
+    </tr>
+  `);
+  
+  
+}
+</script>
