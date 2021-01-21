@@ -8,26 +8,24 @@
   <form action="api/edit_require.php" method="post">
   <table>
     <tr>
-      <td>希望性質:</td>
-      <td>
-        <input type="radio" name="type" value="全職工作" <?=($req['type']=="全職工作")?"checked":"";?>>全職工作
-        <input type="radio" name="type" value="兼職工作" <?=($req['type']=="兼職工作")?"checked":"";?>>兼職工作
-      </td>
-    </tr>
-    <tr>
-      <td>上班時段:</td>
-      <td>
-        <input type="radio" name="time" value="日班" <?=($req['time']=="日班")?"checked":"";?>>日班
-        <input type="radio" name="time" value="夜班" <?=($req['time']=="夜班")?"checked":"";?>>夜班
-      </td>
+      <td>希望職稱:</td>
+      <td><input type="text" name="title" value="<?=$req['title'];?>"></td>
     </tr>
     <tr>
       <td>希望地點:</td>
       <td><input type="text" name="location" value="<?=$req['location'];?>"></td>
     </tr>
     <tr>
-      <td>希望職稱:</td>
-      <td><input type="text" name="title" value="<?=$req['title'];?>"></td>
+      <td>待遇:</td>
+      <td>
+        <input type="text" name="salary" value="<?=$req['salary'];?>">
+      </td>
+    </tr>
+    <tr>
+      <td>可上班日:</td>
+      <td>
+        <input type="text" name="time" value="<?=$req['time'];?>">
+      </td>
     </tr>
     <input type="hidden" name="id" value="<?=$req['id'];?>">
   </table>

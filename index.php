@@ -87,16 +87,19 @@ include_once "base.php";
       <div class="text-center col-12 col-lg-5">
         <img src="img/<?=$Image->all(['sh'=>1])[0]['img'];?>" style="width:350px;height:400px">
       </div>
-      <div class="col-12 mt-5 col-lg-7 mt-lg-0 d-flex flex-column-reverse flex-lg-column pt-lg-5">
+      <div class="col-12 mt-5 col-lg-7 mt-lg-0 d-flex flex-column-reverse flex-lg-column ">
         <p class="container px-5 px-lg-0 pr-lg-5">
           <?=$Auto->all(['sh'=>1])[0]['text'];?>
         </p>
-        <div class="my-3 pl-5 pl-md-5 pl-lg-0">
+        <div class="my-2 pl-5 pl-md-5 pl-lg-0">
           <div class="mb-1">姓名: <?=$Basic->find(1)['name'];?></div>
           <div class="mb-1">手機: <?=$Basic->find(1)['phone'];?></div>
           <div class="mb-1">生日: <?=$Basic->find(1)['birth'];?></div>
           <div class="mb-1">信箱: <?=$Basic->find(1)['email'];?></div>
           <div>職稱: <?=$Require->all(['sh'=>1])[0]['title'];?></div>
+          <div>地點: <?=$Require->all(['sh'=>1])[0]['location'];?></div>
+          <div>待遇: <?=$Require->all(['sh'=>1])[0]['salary'];?></div>
+          <div>可上班日: <?=$Require->all(['sh'=>1])[0]['time'];?></div>
         </div>
       </div>
     </div>
@@ -208,68 +211,35 @@ include_once "base.php";
       <div class="title my-5 text-info font-weight-bolder">EXPERIENCE</div>
       <h4 class="mb-3 text-secondary">EDUCATION</h4>
       <div class="educationContent">
+        <?php
+          $edus=$Education->all(['sh'=>1]);
+          foreach($edus as $edu){
+            $eduText=explode(",",$edu['text']);
+        ?>
         <div class="timelineBlock">
           <div class="mainTimeline">
             <i class="far fa-circle"></i>
             <div class="timeline"></div>
           </div>
           <div class="timelineContent">
-            <h5>泰山訓練場</h5>
-            <p>PHP資料庫網頁設計</p>
+            <h5><?=$edu['schoolname'];?></h5>
+            <p><?=$edu['department'];?></p>
             <div>
               <ul>
-                <li>網頁編排編輯</li>
-                <li>視覺影像設計</li>
-                <li>數位媒體應用</li>
-                <li>資訊網路概論</li>
-                <li>網頁動態技術</li>
-                <li>資料庫程式設計</li>
-                <li>網頁設計實務</li>
+              <?php
+                  for($i=0;$i<(count($eduText));$i++){
+                ?>
+                <li><?=$eduText[$i];?></li>
+                <?php
+                  }
+                ?>
               </ul>
             </div>
           </div>
         </div>
-        <div class="timelineBlock">
-          <div class="mainTimeline">
-            <i class="far fa-circle"></i>
-            <div class="timeline"></div>
-          </div>
-          <div class="timelineContent">
-            <h5>實踐大學</h5>
-            <p>社會工作學系</p>
-            <div>
-              <p>廣青文教基金會-士林北投區身心障礙者資源中心(實習)</p>
-              <ul>
-                <li>參與、陪同身心障礙學員進行日間照顧課程</li>
-                <li>獨立規劃教案課程並執行，帶領身心障礙學員完成活動</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="timelineBlock">
-          <div class="mainTimeline">
-            <i class="far fa-circle"></i>
-            <div class="timeline"></div>
-          </div>
-          <div class="timelineContent">
-            <h5>新莊高中</h5>
-            <p>社團活動</p>
-            <div>
-              <p>非常音樂社</p>
-              <ul>
-                <li>舉辦全校性活動 - 非你莫屬歌唱大賽，並擔任活動副總召及初、複賽評審</li>
-              </ul>
-            </div>
-            <div>
-              <p>社團聯合自治協會</p>
-              <ul>
-                <li>新生迎新晚會籌辦</li>
-                <li>春、秋季放學後的秘密，小型社團表演活動籌辦</li>
-                <li>社團聯合成果發表會籌辦</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <?php
+          }
+        ?>
       </div>
     </div>
   </section>
